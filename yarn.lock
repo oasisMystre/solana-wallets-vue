@@ -3801,17 +3801,6 @@ socket.io-parser@~4.2.0:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.1"
 
-"solana-wallets-vue@file:.":
-  version "0.6.0"
-  dependencies:
-    "@solana-mobile/wallet-adapter-mobile" "^1.0.0"
-    "@solana/wallet-adapter-base" "^0.9.20"
-    "@solana/wallet-standard-wallet-adapter-base" "^1.0.0"
-    "@vueuse/core" "^9.3.0"
-    "@wallet-standard/app" "^1.0.1"
-    "@wallet-standard/base" "^1.0.1"
-    solana-wallets-vue "file:../../../../AppData/Local/Yarn/Cache/v6/npm-solana-wallets-vue-0.6.0-5944da20-ea11-4f67-9ad1-02bbd0034143-1705015533076/node_modules/solana-wallets-vue"
-
 sonic-boom@^1.0.2:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-1.4.1.tgz#d35d6a74076624f12e6f917ade7b9d75e918f53e"
