@@ -1,8 +1,11 @@
-import type { Adapter, WalletError } from "@solana/wallet-adapter-base";
-import type { Cluster } from "@solana/web3.js";
 import type { Ref } from "vue";
 
+import type { Cluster } from "@solana/web3.js";
+import type { WalletName } from "@solana/wallet-adapter-base";
+import type { Adapter, WalletError } from "@solana/wallet-adapter-base";
+
 export type WalletStoreProps = {
+  defaultWalletName?: WalletName,
   wallets?: Adapter[] | Ref<Adapter[]>;
   autoConnect?: boolean | Ref<boolean>;
   cluster?: Cluster | Ref<Cluster>;

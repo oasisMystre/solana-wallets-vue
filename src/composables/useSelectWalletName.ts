@@ -1,14 +1,16 @@
-import { SolanaMobileWalletAdapterWalletName } from "@solana-mobile/wallet-adapter-mobile";
-import type { WalletName } from "@solana/wallet-adapter-base";
-import { useLocalStorage } from "@vueuse/core";
 import { computed, Ref } from "vue";
+import { useLocalStorage } from "@vueuse/core";
+
+import type { WalletName } from "@solana/wallet-adapter-base";
+import { SolanaMobileWalletAdapterWalletName } from "@solana-mobile/wallet-adapter-mobile";
 
 /**
  * Selects a wallet from its name and stores it in local storage.
  */
 export function useSelectWalletName(
   localStorageKey: string,
-  isMobile: Ref<boolean>
+  isMobile: Ref<boolean>,
+  defaultWalletName: WalletName = SolanaMobileWalletAdapterWalletName
 ): {
   name: Ref<string | null>;
   isUsingMwaAdapter: Ref<boolean>;
@@ -18,7 +20,7 @@ export function useSelectWalletName(
 } {
   const name: Ref<WalletName | null> = useLocalStorage<WalletName | null>(
     localStorageKey,
-    isMobile.value ? SolanaMobileWalletAdapterWalletName : null
+    isMobile.value ? defaultWalletName : null
   );
 
   const isUsingMwaAdapter = computed<boolean>(

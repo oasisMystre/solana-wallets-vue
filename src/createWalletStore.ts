@@ -1,8 +1,13 @@
-import type { Adapter } from "@solana/wallet-adapter-base";
-import { WalletNotReadyError } from "@solana/wallet-adapter-base";
-import type { Cluster } from "@solana/web3.js";
+
 import type { Ref } from "vue";
 import { ref, shallowRef } from "vue";
+
+import type { Cluster } from "@solana/web3.js";
+import type { Adapter } from "@solana/wallet-adapter-base";
+import type { WalletName } from "@solana/wallet-adapter-base";
+import { WalletNotReadyError } from "@solana/wallet-adapter-base";
+import { SolanaMobileWalletAdapterWalletName } from "@solana-mobile/wallet-adapter-mobile";
+
 import {
   useAdapterListeners,
   useAutoConnect,
@@ -23,6 +28,7 @@ import type { WalletStore, WalletStoreProps } from "./types";
 export const createWalletStore = ({
   wallets: initialAdapters = [],
   autoConnect: initialAutoConnect = false,
+  defaultWalletName,
   cluster: initialCluster = "mainnet-beta",
   onError,
   localStorageKey = "walletName",
@@ -46,7 +52,7 @@ export const createWalletStore = ({
 
   // Wallet selection and state.
   const { name, isUsingMwaAdapterOnMobile, select, deselect } =
-    useSelectWalletName(localStorageKey, isMobile);
+    useSelectWalletName(localStorageKey, isMobile, defaultWalletName);
   const {
     wallet,
     publicKey,
