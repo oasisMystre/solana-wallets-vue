@@ -10,7 +10,7 @@ import { SolanaMobileWalletAdapterWalletName } from "@solana-mobile/wallet-adapt
 export function useSelectWalletName(
   localStorageKey: string,
   isMobile: Ref<boolean>,
-  defaultWalletName: WalletName = SolanaMobileWalletAdapterWalletName
+  defaultWalletName: WalletName | null = SolanaMobileWalletAdapterWalletName
 ): {
   name: Ref<string | null>;
   isUsingMwaAdapter: Ref<boolean>;
